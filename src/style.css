@@ -1,0 +1,38 @@
+.tituloPrincipal{
+    text-align: center;
+}
+
+.menuPrincipal{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 200px;
+    margin: 0 auto;
+}
+
+.menuPrincipal > li{
+    font-size: 1.5rem;
+    padding: 50px 100px 50px 100px;
+    
+}
+
+a:link{
+    text-decoration: none;
+}
+
+
+.material-icons{
+    margin-left: 20px;
+    font-size: 48px;
+    color: black; 
+}
+
+.botonContador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+body{
+    background-color: pink;
+}
