@@ -17,6 +17,7 @@ const ItemList = () => {
         return promesa.then(res => {
             return res
         }, err => {
+
             console.log(err)
         });
     }
@@ -34,11 +35,13 @@ const ItemList = () => {
 
     return (
         <>
-            {cargando ? <h2>Cargando...</h2> :
+            {cargando ? <h2>Cargando lista de productos...</h2> :
                 productos.map((producto) =>
-                    <Item key={producto.id} nombre={producto.nombre} imagen={producto.imagen} precio={producto.precio} />
+                    <Item key={producto.id} titulo={producto.titulo} imagen={producto.imagen} precio={producto.precio} stock={producto.stock} />
                 )
+                
             }
+
 
         </>
     )
