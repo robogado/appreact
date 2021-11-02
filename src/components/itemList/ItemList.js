@@ -3,6 +3,7 @@ import data from "../../data/data"
 import Item from "./item/Item"
 import React, { useState, useEffect } from "react"
 
+
 const ItemList = () => {
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
@@ -38,10 +39,8 @@ const ItemList = () => {
             {cargando ? <h2>Cargando lista de productos...</h2> :
                 productos.map((producto) =>
                     <Item key={producto.id} titulo={producto.titulo} imagen={producto.imagen} precio={producto.precio} stock={producto.stock} />
-                )
-                
+                )                
             }
-
 
         </>
     )
