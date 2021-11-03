@@ -2,17 +2,22 @@
 import data from "../../data/data"
 import ItemDetail from "./itemDetail/ItemDetail"
 import React, { useState, useEffect } from "react"
+import  {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState([])
     const [cargando, setCargando] = useState(true)
+
+
+    //Para filtrar las Cards
+    const {categoria, id} = useParams()
 
     //Para que se renderice una sola vez ingresamos un array vacio []
     const promesaProducto = () => {
         const promesa = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(data)
-            }, 4000)
+            }, 1000)
         });
         return promesa.then(res => {
             return res
@@ -24,7 +29,7 @@ const ItemDetailContainer = () => {
     //Seteamos el producto con el resultado de la promesa        
     useEffect(() => {
         promesaProducto().then((item) => {
-            const productoCargando = item.find(productoCargando => productoCargando.id === "1")
+            const productoCargando = item.find(productoCargando => productoCargando.id === id)
             setProducto(productoCargando)
             setCargando(false)
         })
@@ -35,8 +40,10 @@ const ItemDetailContainer = () => {
     //Retornamos solo el producto con ID 1
     return (
         <>
-            {cargando ? <h2>Cargando producto id 1...</h2> :
-                <ItemDetail titulo={producto.titulo} imagen={producto.imagen} precio={producto.precio} stock={producto.stock} descr={producto.descr} />
+            {cargando ? <h2>Cargando producto seleccionado ...</h2> :
+            <div className="container-fluid row d-flex justify-content-center my-3 text-center tarjetasProductos">
+                <ItemDetail titulo={producto.titulo} imagen={producto.imagen} descr={producto.descr} precio={producto.precio} stock={producto.stock} />
+            </div>   
             }
 
         </>

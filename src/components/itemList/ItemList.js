@@ -33,17 +33,19 @@ const ItemList = () => {
 
     }, [])
 
-
     return (
         <>
             {cargando ? <h2>Cargando lista de productos...</h2> :
-                productos.map((producto) =>
-                    <Item key={producto.id} titulo={producto.titulo} imagen={producto.imagen} precio={producto.precio} stock={producto.stock} />
+                productos.map((producto) =>                                                                                                                          < div className="container-fluid row d-flex justify-content-center my-3 text-center">
+                    <Item key={producto.id} titulo={producto.titulo} imagen={producto.imagen} precio={producto.precio} stock={producto.stock} categoria={producto.categoria} id={producto.id} />                                                                                                                                               </div>
                 )                
             }
 
         </>
     )
+
+   
+    
 }
 
 export default ItemList

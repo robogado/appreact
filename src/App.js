@@ -9,17 +9,26 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
 
 function App() {
-    const user = "Rocio"
     return (
         <Router>
             <div className="container">
                 <Header />
                 <NavBar />
                 <Switch>
-                    <Route path="/">
-                        <ItemListContainer saludo={`Bienvenidas a Free Beauty by ${user}`} />
+                    <Route path="/"exact> 
+                        <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />
+                    </Route>
+                    <Route path="/:categoria/:id" exact>
+                        <ItemDetailContainer saludo={`Bienvenidas a la Seccion Ojos`} />
+                    </Route>
+                     <Route path="/:categoria/:id" exact>
+                        <ItemDetailContainer saludo={`Bienvenidas a la Seccion Rostro`} />
+                    </Route>
+                     <Route path="/:categoria/:id" exact>
+                        <ItemDetailContainer saludo={`Bienvenidas a la Seccion Labios`} />
                     </Route>
                 </Switch>
                 <Footer />
