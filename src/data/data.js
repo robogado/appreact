@@ -3,7 +3,7 @@ const data = [
         id:"1",
         titulo:"Rimmel London Wonder’Luxe Volume Mascara",
         descr: "Máscara de pestañas que da volumen definido para unas pestañas con cuerpazo.",
-        imagen: "./imagenes/mascararimmel-min.jpg",
+        imagen: "/imagenes/mascararimmel-min.jpg",
         precio: "$980",
         stock:"2",
         categoria:"ojos",
@@ -14,7 +14,7 @@ const data = [
         titulo:"Delineador Revlon Colostay™ liquid liner, larga duracion",
         descr:"Te permite destacar los ojos con precisión. Se desliza fácilmente, se seca rápidamente y es de larga duración.",
         categoria:"ojos",
-        imagen:"./imagenes/delineadorliquidorevlon.jpg",
+        imagen:"/imagenes/delineadorliquidorevlon.jpg",
         precio: "$780",
         stock:"4",
     },
@@ -25,7 +25,7 @@ const data = [
         descr:"Otorga un acabado natural al maquillaje y prolonga su duración, es fácil de aplicar y es apto para todo tipo de piel.",
         categoria:"rostro",
         stock:"5",
-        imagen:"./imagenes/polvovolatilrimmel.jpg",
+        imagen:"/imagenes/polvovolatilrimmel.jpg",
         precio: "$900",
     },
 
@@ -35,7 +35,7 @@ const data = [
         descr:"La emulsión iluminadora hidratante para rostro y cuerpo hace que la piel se vea radiante, sana y muy fresca.",
         categoria:"rostro",
         stock:"10",
-        imagen:"./imagenes/iluminadoridi.jpg",
+        imagen:"/imagenes/iluminadoridi.jpg",
         precio: "$800",
     },
 
@@ -45,7 +45,7 @@ const data = [
         descr:"No transfiere y tiene acabado 100% mate , a prueba de besos con suave y cremosa aplicación.",
         categoria:"labios",
         stock:"9",
-        imagen:"./imagenes/labialVogueNude.png",
+        imagen:"/imagenes/labialVogueNude.png",
         precio: "$550",
 
     },
@@ -55,8 +55,8 @@ const data = [
         titulo:"Labial Vinyl Gloss Lumiere Gold",
         descr:"Es un laca labial ultra shine de larga duración que conserva la hidratación de los labios.",
         categoria:"labios",
-        stock:"1",
-        imagen:"./imagenes/labialgloss.jpeg",
+        stock:"10",
+        imagen:"/imagenes/labialgloss.jpeg",
         precio: "$1400",
     }
 

@@ -10,8 +10,9 @@ const ItemDetailContainer = () => {
 
 
     //Para filtrar las Cards
-    const {categoria, id} = useParams()
+    const { categoria,id } = useParams()
 
+    
     //Para que se renderice una sola vez ingresamos un array vacio []
     const promesaProducto = () => {
         const promesa = new Promise((resolve, reject) => {
@@ -37,7 +38,7 @@ const ItemDetailContainer = () => {
 
     }, [])
 
-    //Retornamos solo el producto con ID 1
+    //Retornamos solo el producto que necesitamos
     return (
         <>
             {cargando ? <h2>Cargando producto seleccionado ...</h2> :
@@ -45,7 +46,6 @@ const ItemDetailContainer = () => {
                 <ItemDetail titulo={producto.titulo} imagen={producto.imagen} descr={producto.descr} precio={producto.precio} stock={producto.stock} />
             </div>   
             }
-
         </>
     )
 }
