@@ -10,12 +10,12 @@ const ItemDetailContainer = () => {
 
 
     //Para filtrar las Cards
-    const { categoria,id } = useParams()
+    const { id } = useParams()
 
     
     //Para que se renderice una sola vez ingresamos un array vacio []
     const promesaProducto = () => {
-        const promesa = new Promise((resolve, reject) => {
+        const promesa = new Promise((resolve) => {
             setTimeout(() => {
                 resolve(data)
             }, 1000)

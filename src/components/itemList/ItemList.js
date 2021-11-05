@@ -2,9 +2,11 @@
 import data from "../../data/data"
 import Item from "./item/Item"
 import React, { useState, useEffect } from "react"
+import { useParams } from "react-router"
 
 
 const ItemList = () => {
+    const { categoria } = useParams()
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
 
@@ -23,15 +25,22 @@ const ItemList = () => {
         });
     }
 
-    //Seteamos el producto con el resultado de la promesa        
+    //Filtramos las cards por categorias    
     useEffect(() => {
         promesaProductos().then((item) => {
-            setProductos(item)
-            setCargando(false)
+            if (categoria != null) {
+                let categoriasFiltradas= item.filter((producto => producto.categoria === categoria))
+                setProductos(categoriasFiltradas)
+                setCargando(false)
+            } else{
+                setProductos(item)
+                setCargando(false)
+
+            }
         })
 
 
-    }, [])
+    }, [categoria])
 
     return (
         <>
