@@ -5,7 +5,7 @@ const data = [
         descr: "Máscara de pestañas que da volumen definido para unas pestañas con cuerpazo.",
         imagen: "/imagenes/mascararimmel-min.jpg",
         precio: "$980",
-        stock:"2",
+        stock:"8",
         categoria:"ojos",
     },
 
@@ -16,7 +16,7 @@ const data = [
         categoria:"ojos",
         imagen:"/imagenes/delineadorliquidorevlon.jpg",
         precio: "$780",
-        stock:"4",
+        stock:"8",
     },
 
     {
@@ -24,7 +24,7 @@ const data = [
         titulo:"Polvo volátil match perfection Rimmel London para todo tipo de piel",
         descr:"Otorga un acabado natural al maquillaje y prolonga su duración, es fácil de aplicar y es apto para todo tipo de piel.",
         categoria:"rostro",
-        stock:"5",
+        stock:"6",
         imagen:"/imagenes/polvovolatilrimmel.jpg",
         precio: "$900",
     },

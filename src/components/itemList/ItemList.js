@@ -35,7 +35,6 @@ const ItemList = () => {
             } else{
                 setProductos(item)
                 setCargando(false)
-
             }
         })
 

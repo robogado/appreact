@@ -3,6 +3,7 @@ import NavBar from "./NavBar"
 import Footer from "./Footer"
 import ItemListContainer from "./ItemListContainer"
 import React from "react"
+import Cart from "./Cart"
 import {
     BrowserRouter as Router,
     Switch,
@@ -20,6 +21,9 @@ function App() {
                 <Switch>
                     <Route path="/"exact> 
                         <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />
+                    </Route>
+                    <Route path="/cart" exact>
+                        <Cart titulo="CARRITO"/>   
                     </Route>
                     <Route path="/:categoria/"exact> 
                         <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />

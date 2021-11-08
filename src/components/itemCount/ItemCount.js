@@ -38,6 +38,9 @@ const ItemCount = (props) => {
             <p>{unidades}</p>
             <button onClick= {restaDeContador.restaStock} disabled={stock==="0"}>-</button>
             <p>Stock disponible: {stock} </p>
+            <div>
+                <button onClick={()=>props.onAdd({unidades})}>Agregar al carrito</button>
+            </div>
         </div>
     )
 }
