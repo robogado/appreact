@@ -11,10 +11,12 @@ import {
     Link
 } from "react-router-dom";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
+import { FuncionCarrito } from "./context/CartContext"
 
 function App() {
     return (
         <Router>
+            <FuncionCarrito>
             <div className="container">
                 <Header />
                 <NavBar />
@@ -34,6 +36,7 @@ function App() {
                 </Switch>
                 <Footer />
             </div>
+            </FuncionCarrito>
         </Router>
     )
 }

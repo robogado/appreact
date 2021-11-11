@@ -9,6 +9,7 @@ const NavBar = () => {
             <Link to="/ojos">Ojos</Link>
             <Link to="/rostro">Rostro</Link>
             <Link to="/labios">Labios</Link>
+            <Link to="/carrito">Carrito</Link>
             <CartWidget/>
         </div>
         
