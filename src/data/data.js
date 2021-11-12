@@ -4,7 +4,7 @@ const data = [
         titulo:"Rimmel London Wonder’Luxe Volume Mascara",
         descr: "Máscara de pestañas que da volumen definido para unas pestañas con cuerpazo.",
         imagen: "/imagenes/mascararimmel-min.jpg",
-        precio: "$980",
+        precio: "980",
         stock:"8",
         categoria:"ojos",
     },
@@ -15,7 +15,7 @@ const data = [
         descr:"Te permite destacar los ojos con precisión. Se desliza fácilmente, se seca rápidamente y es de larga duración.",
         categoria:"ojos",
         imagen:"/imagenes/delineadorliquidorevlon.jpg",
-        precio: "$780",
+        precio: "780",
         stock:"8",
     },
 
@@ -26,7 +26,7 @@ const data = [
         categoria:"rostro",
         stock:"6",
         imagen:"/imagenes/polvovolatilrimmel.jpg",
-        precio: "$900",
+        precio: "900",
     },
 
     {
@@ -36,7 +36,7 @@ const data = [
         categoria:"rostro",
         stock:"10",
         imagen:"/imagenes/iluminadoridi.jpg",
-        precio: "$800",
+        precio: "800",
     },
 
     {
@@ -46,7 +46,7 @@ const data = [
         categoria:"labios",
         stock:"9",
         imagen:"/imagenes/labialVogueNude.png",
-        precio: "$550",
+        precio: "550",
 
     },
 
@@ -57,7 +57,7 @@ const data = [
         categoria:"labios",
         stock:"10",
         imagen:"/imagenes/labialgloss.jpeg",
-        precio: "$1400",
+        precio: "1400",
     }
 
 ]

@@ -7,17 +7,17 @@ const Context = React.createContext()
 //Creamos la funcion que contiene los datos del carrito
 const FuncionCarrito = ({children}) => {
     const [cart, setCart] = useState([])
-    //Nos indica cuantos productos tenemos en el carrito
+    //Nos indica cuantos productos distintos tenemos en el carrito
     const [unidadesSeleccionadas, setUnidadesSeleccionadas] = useState(0)
     //Nos indica el precio total del carrito
     const [precioTotal, setPrecioTotal] = useState(0)
 
     //Con esta funcion agregamos los productos al carrito
     const onAdd = (producto, cantidad) => {
-        const itemExiste = cart.find(item => item.producto.id === producto.id)
+        const itemExiste = cart.find(item => item.id === producto.id)
         //Pregunta si existe item y si no existe lo agrega
         if (!itemExiste) {
-            setCart([...cart, {id:producto.id, titulo:producto.titulo, precio:producto.precio, cantidad:producto.cantidad, subTotal:(producto.precio*cantidad)}])
+            setCart([...cart, {id:producto.id, titulo:producto.titulo, precio:producto.precio, cantidad:cantidad, subTotal:(producto.precio*cantidad)}])
             //Seteo unidades y el total
             setUnidadesSeleccionadas(unidadesSeleccionadas+1)
             setPrecioTotal(precioTotal+(producto.precio*cantidad))
@@ -25,21 +25,33 @@ const FuncionCarrito = ({children}) => {
             const cartActualizado = cart.map(item => {
                 if (item.id === producto.id) {
                     item.cantidad += cantidad
-                    item.subTotal += (producto.precio*producto.cantidad)
+                    item.subTotal += (producto.precio*cantidad)
                 }
                 return item
             })
         
             setCart(cartActualizado)
+            setPrecioTotal(precioTotal+(producto.precio*cantidad))
         }
-        setPrecioTotal(precioTotal+(producto.precio*cantidad))
-
-        return <Context.Provider value={{cart, unidadesSeleccionadas, precioTotal, onAdd}}>
-            {children}
-        </Context.Provider>
-
     }
+
+    const removeCart=(id)=>{
+        const nuevoCart = cart.filter((item) => item.id !== id)
+        setCart (nuevoCart)
+    }
+
+    const clearCart=()=>{
+        setCart([])
+        
+    }
+
+    //Retorna los datos del carrito
+    return <Context.Provider value={{cart, unidadesSeleccionadas, precioTotal, onAdd, removeCart, clearCart}}>
+        {children}
+        </Context.Provider>
 }
 
+
 //Exportamos el contexto y la funcion
-export {FuncionCarrito, Context}
+export {Context, FuncionCarrito}
+

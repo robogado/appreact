@@ -25,7 +25,7 @@ function App() {
                         <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />
                     </Route>
                     <Route path="/cart" exact>
-                        <Cart titulo="CARRITO"/>   
+                        <Cart titulo=""/>   
                     </Route>
                     <Route path="/:categoria/"exact> 
                         <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />

@@ -12,7 +12,7 @@ const Item = ({ id, titulo, imagen, precio, stock, categoria }) => {
                     <Card.Img className="rounded-3 figureBorde figureSize" variant="top" src={imagen} />
                     <Card.Body>
                         <Card.Title className="text-center titArt">{titulo}</Card.Title>
-                        <Card.Subtitle className="p-2 titArt " style={{ textAlign: "center" }}><strong>{precio}</strong></Card.Subtitle>
+                        <Card.Subtitle className="p-2 titArt " style={{ textAlign: "center" }}><strong>$ {precio}</strong></Card.Subtitle>
                         <ItemCount stock={stock} initial={1} />
                     </Card.Body>
                 </Card>
