@@ -35,13 +35,17 @@ const FuncionCarrito = ({children}) => {
         }
     }
 
-    const removeCart=(id)=>{
+    const removeCart=(id, cantidad, precio)=>{
         const nuevoCart = cart.filter((item) => item.id !== id)
         setCart (nuevoCart)
+        setPrecioTotal(precioTotal-(cantidad*precio))
+        setUnidadesSeleccionadas(unidadesSeleccionadas - 1)
     }
 
     const clearCart=()=>{
         setCart([])
+        setUnidadesSeleccionadas(0)
+        setPrecioTotal(0)
         
     }
 

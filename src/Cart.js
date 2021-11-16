@@ -1,10 +1,12 @@
 //Importamos lo que necesitamos
 import React, { useContext } from 'react';
 import { Context } from "./context/CartContext"
+import { Container, Button } from 'react-bootstrap'
+import CartItem from "./cartItem/CartItem"
 
 
 const Cart = () => {
-    const { cart , total, removeCart, clearCart} = useContext(Context);
+    const { cart , precioTotal, clearCart} = useContext(Context);
 
     if (cart.length === 0) {
         return(
@@ -12,21 +14,31 @@ const Cart = () => {
     )}
 
     return(
-        <>
-        {cart.map((item) =>
         <div>
-            <h3>Producto: {item.titulo}</h3>
-            <h4>Precio:$ {item.precio}</h4>
-            <h5>Cantidad:{item.cantidad}</h5>
-            <h6>SubTotal:$ {item.subTotal}</h6>
-            <button onClick={()=>removeCart(item.id)}>Eliminar producto</button>
-        </div>
-              
+        <Container className="container align-top justify-content-center p-2 text-center ">
+        <Container>
+        {cart.map((item) =>
+             <CartItem
+                        key={`cart-${item.id}`}
+                        id={item.id}
+                        titulo={item.titulo}
+                        precio={item.precio}
+                        imagen={item.imagen}
+                        cantidad={item.cantidad}
+                        subtotal={item.subtotal}
+                      />
     )}
+    </Container>
+              
     
-    <h2>Total :$ {total}</h2>
+    <Container>
+    <h2>Total :$ {precioTotal}</h2>
     <button onClick={()=>clearCart()}>Vaciar carrito</button>
-    </>
+    <button>Finalizar compra</button>
+
+    </Container>
+    </Container>
+        </div >
     )
 }
 
