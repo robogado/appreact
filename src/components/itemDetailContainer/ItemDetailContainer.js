@@ -3,6 +3,8 @@ import data from "../../data/data"
 import ItemDetail from "./itemDetail/ItemDetail"
 import React, { useState, useEffect } from "react"
 import  {useParams} from "react-router-dom"
+import { getFirestore } from "../../firebase/Firebase"
+
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState([])
@@ -12,29 +14,24 @@ const ItemDetailContainer = () => {
     //Para filtrar las Cards
     const { id } = useParams()
 
-    
-    //Para que se renderice una sola vez ingresamos un array vacio []
-    const promesaProducto = () => {
-        const promesa = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(data)
-            }, 1000)
-        });
-        return promesa.then(res => {
-            return res
-        }, err => {
-            console.log(err)
-        });
-    }
-
     //Seteamos el producto con el resultado de la promesa        
     useEffect(() => {
-        promesaProducto().then((item) => {
-            const productoCargando = item.find(productoCargando => productoCargando.id === id)
-            setProducto(productoCargando)
-            setCargando(false)
-        })
+        const db = getFirestore()
+		const itemCollection = db.collection("productos")
+		const item = itemCollection.doc(id)
 
+		item.get().then((doc) => {
+			if (!doc.exists) {
+				console.log("El producto no existe ")
+				return
+			}			
+			setProducto({ id: doc.id, ...doc.data() })
+		}).catch((error) => {
+			console.log("Error al buscar productos", error)
+			alert("El producto no existe")
+		}).finally(() => {
+			setCargando(false)
+		})
 
     }, [])
 
