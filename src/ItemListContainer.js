@@ -14,31 +14,39 @@ const ItemListContainer = ()  => {
     useEffect(()=>{
         if(categoria){
             const dbQuery = getFirestore()
-            dbQuery.collection("productos").where("categoria", '==', categoria).get()
+            dbQuery.collection('productos').where('categoria', '==', categoria).get()
             .then(resp => {
-                setProductos(resp.docs.map(productos => ( {id: productos.id, ... productos.data() } ) ))
+                setProductos(resp.docs.map(productos => ( {id: productos.id, ...productos.data() } ) ))
             })
             .catch(err => console.log(err))
             .finally(()=>setCargando(false))
         } else {
             const dbQuery = getFirestore()
-            dbQuery.collection("productos").get()
+            dbQuery.collection('productos').get()
             .then(resp => {
-                setProductos(resp.docs.map(productos => ( {id: productos.id, ... productos.data() } ) ))
+                setProductos(resp.docs.map(productos => ( {id: productos.id, ...productos.data() } ) ))
             })
             .catch(err => console.log(err))
             .finally(()=>setCargando(false))
         }
         console.log(productos)
     }, [categoria])
-    
+
     return (
         
-                <div className="container-fluid">
-                    <div className="row">
-                        <ItemList/>
-                    </div>
-                </div>
+        <>
+        {/* Si está cargando los productos muestro el mensaje, sino llamo a ItemList con productos */}
+        {
+          cargando ?
+            <h2>CARGANDO...</h2>
+            :
+            <div className="container-fluid">
+              <div className="row">
+                <ItemList items={productos} />
+              </div>
+            </div>
+        }
+      </>
 
         
     )
