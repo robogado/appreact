@@ -1,5 +1,4 @@
 //Importamos lo que necesitamos
-import data from "../../data/data"
 import ItemDetail from "./itemDetail/ItemDetail"
 import React, { useState, useEffect } from "react"
 import  {useParams} from "react-router-dom"

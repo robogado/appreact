@@ -1,46 +1,21 @@
-//Importamos lo que necesitamos
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from "./context/CartContext"
-import { Container, Button } from 'react-bootstrap'
-import CartItem from "./cartItem/CartItem"
+import { Link } from "react-router-dom"
+import { useHistory } from "react-router"
 
 
 const Cart = () => {
-    const { cart , precioTotal, clearCart} = useContext(Context);
+    const { cart ,  removeCart, clearCart} = useContext(Context);
+    const {push} = useHistory()
+    const [toClick,setToClick] = useState(false)
 
-    if (cart.length === 0) {
-        return(
-            <p>No hay productos seleccionados en el carrito</p>
-    )}
 
-    return(
-        <div>
-        <Container className="container align-top justify-content-center p-2 text-center ">
-        <Container>
-        {cart.map((item) =>
-             <CartItem
-                        key={`cart-${item.id}`}
-                        id={item.id}
-                        titulo={item.titulo}
-                        precio={item.precio}
-                        imagen={item.imagen}
-                        cantidad={item.cantidad}
-                        subtotal={item.subtotal}
-                      />
-    )}
-    </Container>
-              
-    
-    <Container>
-    <h2>Total :$ {precioTotal}</h2>
-    <button onClick={()=>clearCart()}>Vaciar carrito</button>
-    <button>Finalizar compra</button>
-
-    </Container>
-    </Container>
-        </div >
-    )
+    const finalizarCompra = () => {
+        setToClick(true)
+    }
 }
-
+    
+   
+  
 //Exportamos el componente
 export default Cart

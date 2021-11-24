@@ -29,6 +29,7 @@ const ItemListContainer = ()  => {
             .catch(err => console.log(err))
             .finally(()=>setCargando(false))
         }
+        console.log(productos)
     })
     return (
         
