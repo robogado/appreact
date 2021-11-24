@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
 			setCargando(false)
 		})
 
-    }, [])
+    }, [id])
 
     //Retornamos solo el producto que necesitamos
     return (

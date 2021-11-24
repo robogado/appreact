@@ -30,7 +30,8 @@ const ItemListContainer = ()  => {
             .finally(()=>setCargando(false))
         }
         console.log(productos)
-    })
+    }, [categoria])
+    
     return (
         
                 <div className="container-fluid">
