@@ -39,7 +39,15 @@ const ItemDetailContainer = () => {
         <>
             {cargando ? <h2>Cargando producto seleccionado ...</h2> :
             <div className="container-fluid row d-flex justify-content-center my-3 text-center tarjetasProductos">
-                <ItemDetail titulo={producto.titulo} imagen={producto.imagen} descr={producto.descr} precio= {producto.precio} stock={producto.stock} id={producto.id} />
+               < ItemDetail
+               key={`detalle-${producto.id}`}
+               titulo={ producto.titulo }
+               imagen={ producto.imagen }
+               descr={ producto.descr }
+               precio={ producto.precio }
+               stock={ producto.stock }
+               id={ producto.id }
+               />
             </div>   
             }
         </>

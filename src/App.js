@@ -7,8 +7,8 @@ import Cart from "./Cart"
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
+    
 } from "react-router-dom";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
 import { FuncionCarrito } from "./context/CartContext"
