@@ -7,7 +7,7 @@ import firebase from "firebase/app"
 
 const Form = () => {
     const { push } = useHistory
-    const { cart, clearCart } = useContext(contexto)
+    const { cart, clearCart } = useContext(context)
     const [id, setId] = useState(" ")
     const [datosUser, setDatosUser] = useState({
         nombre: " ",
@@ -52,7 +52,7 @@ const Form = () => {
             .catch(() => {
                 console.log("error")
             })
-            vaciarCarrito()
+            clearCart()
     }
     if (id === " ") {
         return (
