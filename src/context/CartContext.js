@@ -17,7 +17,7 @@ const FuncionCarrito = ({children}) => {
         const itemExiste = cart.find(item => item.id === producto.id)
         //Pregunta si existe item y si no existe lo agrega
         if (!itemExiste) {
-            setCart([...cart, {id:producto.id, titulo:producto.titulo, precio:producto.precio, cantidad:cantidad, subTotal:(producto.precio*cantidad)}])
+            setCart([...cart, {id:producto.id, titulo:producto.titulo, imagen:producto.imagen, precio:producto.precio, cantidad:cantidad, subTotal:(producto.precio*cantidad)}])
             //Seteo unidades y el total
             setUnidadesSeleccionadas(unidadesSeleccionadas+1)
             setPrecioTotal(precioTotal+(producto.precio*cantidad))

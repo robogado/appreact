@@ -26,13 +26,15 @@ const ItemDetailContainer = () => {
 			}			
 			setProducto({ id: doc.id, ...doc.data() })
 		}).catch((error) => {
-			console.log("Error al buscar productos", error)
-			alert("El producto no existe")
+			console.log("Error en la busqueda de productos", error)
+			alert("Producto inexistente")
 		}).finally(() => {
 			setCargando(false)
 		})
+        return{}
 
     }, [id])
+
 
     //Retornamos solo el producto que necesitamos
     return (

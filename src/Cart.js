@@ -12,7 +12,7 @@ const Cart = () => {
   
     const finishOrder = async () => {
   
-      console.log("se finalizó la compra")
+      console.log("Se finalizó la compra")
   
       const user = {
         nombre: "Rocio",
@@ -39,8 +39,9 @@ const Cart = () => {
       }
       try {
         const { id } = await orders.add(order)
-        console.log('Id de la compra: ', id)
+        console.log('El Id de tu compra es:', id)
         setOrderId(id)
+
         clearCart()
       } catch (err) {
         console.log("Ocurrió un error")
@@ -70,7 +71,7 @@ const Cart = () => {
                   precio={item.precio}
                   imagen={item.imagen}
                   cantidad={item.cantidad}
-                  subtotal={item.subtotal}
+                  subtotal={item.subTotal}
                 />
               )}
             </Container>
@@ -80,6 +81,7 @@ const Cart = () => {
               <h2>Total :$ {precioTotal}</h2>
               <button onClick={() => clearCart()}>Vaciar carrito</button>
               <button onClick={() => finishOrder()}>Finalizar compra</button>
+
   
             </Container>
           </Container>

@@ -1,4 +1,5 @@
 import React , { useState } from "react"
+import { Button, Card } from 'react-bootstrap'
 
 const ItemCount = (props) => {
 
@@ -33,16 +34,29 @@ const ItemCount = (props) => {
     //Creamos los botones + y - para aumentar y disminuir las unidades, en caso de que el stock en itemListContainer
     //sea 0 no podemos aumentar ni disminuir las unidades
     return (
-        <div className="botonContador">
-            <button onClick= {sumaDeContador.sumaStock} disabled={stock==="0"}>+</button>
-            <p>{unidades}</p>
-            <button onClick= {restaDeContador.restaStock} disabled={stock==="0"}>-</button>
-            <p>Stock disponible: {stock} </p>
-            <div>
-                <button onClick={()=>props.onAdd({unidades})}>Agregar al carrito</button>
-            </div>
+        <div className="container">
+        <div className="container justify-content-center display-flex col-12 p-2">
+  
+          <div className="container-fluid d-flex justify-content-center">
+            <Card.Text>Stock disponible: {stock}</Card.Text>
+          </div>
+  
+          <div className="container d-flex justify-content-between col-10 col-md-8 col-lg-6 p-2">
+            <button className="btn btn-danger bg-gradient" onClick={restaDeContador.restaStock} disabled={stock==="0"}>-</button>
+            <h5>{unidades}</h5>
+            <button className="btn btn-danger bg-gradient" onClick={sumaDeContador.sumaStock} disabled={stock==="0"}>+</button>
+          </div>
+  
+          <div className="container d-flex justify-content-center">
+            <Button className="col-12 col-md-9 col-lg-6 p-2" variant="dark bg-gradient" onClick={()=>props.onAdd({unidades})}>
+              Agregar al carrito
+            </Button>
+          </div>
+  
         </div>
+      </div>
     )
+  
 }
 
 export default ItemCount

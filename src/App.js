@@ -4,14 +4,15 @@ import Footer from "./Footer"
 import ItemListContainer from "./ItemListContainer"
 import React from "react"
 import Cart from "./Cart"
+import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
+import { FuncionCarrito } from "./context/CartContext"
 import {
     BrowserRouter as Router,
     Switch,
     Route
     
 } from "react-router-dom";
-import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
-import { FuncionCarrito } from "./context/CartContext"
+
 
 function App() {
     return (

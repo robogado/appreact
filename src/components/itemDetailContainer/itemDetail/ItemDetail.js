@@ -4,6 +4,8 @@ import React, { useState, useContext } from "react"
 import { Context } from "../../../context/CartContext"
 
 
+
+
 const ItemDetail = ({id, titulo, imagen, precio, stock, descr}) => {
 
     const [comprar, setComprar] = useState(false)
@@ -11,7 +13,7 @@ const ItemDetail = ({id, titulo, imagen, precio, stock, descr}) => {
 
     const agregarAlCarrito = (props) => {
         setComprar(true)
-        onAdd({id, titulo, precio}, props.unidades)
+        onAdd({id, titulo, precio, imagen}, props.unidades)
         console.log(`Agregaste ${props.unidades} al carrito`)
     }
 
@@ -19,7 +21,7 @@ const ItemDetail = ({id, titulo, imagen, precio, stock, descr}) => {
     return (
         <div className="item">
             <h2>{titulo}</h2>
-            <img src={imagen} alt="img" width="100px" height="100px"/>
+            <img src={imagen} alt="maquillaje" width="100px" height="100px"/>
             <h3>{descr}</h3>
             <h4>$ {precio}</h4>
             { !comprar ? <ItemCount stock = {stock} onAdd ={agregarAlCarrito} />: <Link to="/cart"><button>Terminar compra</button> </Link>} 
