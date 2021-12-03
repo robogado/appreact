@@ -1,45 +1,50 @@
-import Header from "./Header"
-import NavBar from "./NavBar"
-import Footer from "./Footer"
-import ItemListContainer from "./ItemListContainer"
+import Header from "./components/header/Header"
+import NavBar from "./components/navBar/NavBar"
+import Footer from "./components/footer/Footer"
 import React from "react"
-import Cart from "./Cart"
+import Cart from "./components/cart/Cart"
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer"
-import { FuncionCarrito } from "./context/CartContext"
+import { FuncionCarrito } from "./components/context/CartContext";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-    
+  BrowserRouter as Router,
+  Switch,
+  Route
 } from "react-router-dom";
-
+import ItemListContainer from "./components/itemListContainer/ItemListContainer"
 
 function App() {
-    return (
-        <Router>
-            <FuncionCarrito>
-            <div className="container">
-                <Header />
-                <NavBar />
-                <Switch>
-                    <Route path="/"exact> 
-                        <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />
-                    </Route>
-                    <Route path="/cart" exact>
-                        <Cart titulo=""/>   
-                    </Route>
-                    <Route path="/:categoria/"exact> 
-                        <ItemListContainer saludo={`Bienvenidas a Free Beauty`} />
-                    </Route>
-                    <Route path="/:categoria/:id" exact>
-                        <ItemDetailContainer />
-                    </Route>
-                </Switch>
-                <Footer />
-            </div>
-            </FuncionCarrito>
-        </Router>
-    )
+  return (
+    <Router>
+      <FuncionCarrito>
+        <div className="container">
+          <Header />
+
+          <NavBar />
+
+          <Switch>
+
+            <Route path="/" exact>
+              <ItemListContainer saludo={'Bienvenidas a Free Beauty'} />
+            </Route>
+
+            <Route path="/cart" exact>
+              <Cart titulo="" />
+            </Route>
+
+            <Route path="/:categoria" exact>
+              <ItemListContainer saludo={'Bienvenidas a Free Beauty'} />
+            </Route>
+
+            <Route path="/:categoria/:id" exact>
+              <ItemDetailContainer />
+            </Route>
+
+          </Switch>
+          <Footer />
+        </div>
+      </FuncionCarrito>
+    </Router>
+  )
 }
 
 export default App
