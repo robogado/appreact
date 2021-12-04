@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Context } from "../context/CartContext"
-import { Container } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
 import CartItem from "../cartItem/CartItem"
 import { getFirestore } from "../firebase/Firebase"
 import firebase from 'firebase/app'
@@ -40,7 +40,7 @@ const Cart = () => {
     try {
       const { id } = await orders.add(order)
       console.log('El Id de tu compra es:', id)
-      console.log('la fecha es: ', order.date)
+      console.log('La fecha de tu compra es: ', order.date)
       setOrderId(id)
 
       clearCart()
@@ -80,8 +80,8 @@ const Cart = () => {
 
           <Container>
             <h2>Total :$ {precioTotal}</h2>
-            <button onClick={() => clearCart()}>Vaciar carrito</button>
-            <button onClick={() => finishOrder()}>Finalizar compra</button>
+            <Button variant="danger" onClick={() => clearCart()}>Vaciar carrito</Button>
+            <Button variant="danger" onClick={() => finishOrder()}>Finalizar compra</Button>
 
 
           </Container>

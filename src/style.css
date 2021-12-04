@@ -6,6 +6,37 @@
     padding: 10px;
     margin-bottom: 10px;
 }
+
 .tarjetasProductos:hover{
     box-shadow: 0px 0px 20px #000;
+}
+
+h1, h2, h3{
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+p{
+    font-family: 'Fuzzy Bubbles', cursive;
+
+}
+.text-center{
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.rounded-3{
+    margin: 0 auto;
+}
+
+.botonVerMas{
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.precio{
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+footer {
+    background-color: rgb(206, 137, 191);
+    text-align: center;
+    padding: 0.5rem;
 }

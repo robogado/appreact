@@ -1,8 +1,12 @@
+import { Container } from "react-bootstrap"
+
+
+
 const Footer = () => {
     return (
-        <div>
+        <Container fluid as="footer">
             <p>&reg; Beauty Free</p>
-        </div>
+        </Container>
     )
 }
 

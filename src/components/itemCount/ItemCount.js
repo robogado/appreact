@@ -5,7 +5,8 @@ const ItemCount = (props) => {
 
     //Creamos stock y unidades
     const [stock, setStock] = useState(props.stock)
-    const [unidades , setUnidades] = useState(0)
+    const [unidades , setUnidades] = useState(1)
+    
 
     //Creamos una funcion para aumentar las unidades y en caso de no haber stock que nos avise
     const sumaDeContador = {

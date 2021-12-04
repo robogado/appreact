@@ -2,6 +2,8 @@ import ItemCount from "../../itemCount/ItemCount"
 import { Link } from "react-router-dom"
 import React, { useState, useContext } from "react"
 import { Context } from "../../context/CartContext"
+import { Container, Card, Button } from "react-bootstrap"
+
 
 
 
@@ -19,13 +21,20 @@ const ItemDetail = ({id, titulo, imagen, precio, stock, descr}) => {
 
 
     return (
-        <div className="item">
-            <h2>{titulo}</h2>
-            <img src={imagen} alt="maquillaje" width="100px" height="100px"/>
-            <h3>{descr}</h3>
-            <h4>$ {precio}</h4>
-            { !comprar ? <ItemCount stock = {stock} onAdd ={agregarAlCarrito} />: <Link to="/cart"><button>Terminar compra</button> </Link>} 
-        </div>
+        <Container className="col-12 col-md-12 col-lg-12 d-flex justify-content-center my-3">
+            <Card className="card p-3 bg-light rounded-3">
+                <Card.Img className="rounded-3" variant="top" src={imagen} alt={titulo} style={{width: "150px"}} />
+                <Card.Body>
+                    <Card.Title className="text-center">{titulo}</Card.Title>
+                    <Card.Subtitle className="p-2" style={{ textAlign: "center" }}><strong>$ {precio}</strong></Card.Subtitle>
+                    <Card.Text className="text-center">{descr}</Card.Text>
+                     
+                    <div className="container d-flex justify-content-center">
+                        { !comprar ? <ItemCount stock = {stock} onAdd ={agregarAlCarrito} />: <Button as={Link} to='/cart' className="col-4" variant="danger">Terminar compra</Button>}
+                    </div>
+               </Card.Body>
+      </Card>
+    </Container > 
     )
 }
 
