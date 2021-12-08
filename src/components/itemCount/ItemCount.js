@@ -1,43 +1,38 @@
 import React , { useState } from "react"
 import { Button, Card } from 'react-bootstrap'
 
-const ItemCount = (props) => {
 
-    //Creamos stock y unidades
+const ItemCount = (props) => {
     const [stock, setStock] = useState(props.stock)
     const [unidades , setUnidades] = useState(1)
     
-
-    //Creamos una funcion para aumentar las unidades y en caso de no haber stock que nos avise
     const sumaDeContador = {
         sumaStock:()=>{
             if (stock===0){
-                alert ("No hay suficiente stock")
+              console.log ("No hay suficiente stock")
             } else {
-                setStock(stock-1)
-                setUnidades(unidades+1)
+              setStock(stock-1)
+              setUnidades(unidades+1)
             }
         }
     }
-    //Creamos una funcion para disminuir las unidades y en caso de no haber stock que nos avise
+    
     const restaDeContador = {
         restaStock:()=>{
             if (unidades===0){
-                alert ("Sume unidades, el valor ingresado debe ser mayor a 0")
+              console.log ("Sume unidades, el valor ingresado debe ser mayor a 0")
             } else {
-                setUnidades(unidades-1)
-                setStock(stock+1)
+              setUnidades(unidades-1)
+              setStock(stock+1)
             }
         }
     }
 
 
-    //Creamos los botones + y - para aumentar y disminuir las unidades, en caso de que el stock en itemListContainer
-    //sea 0 no podemos aumentar ni disminuir las unidades
+    
     return (
         <div className="container">
         <div className="container justify-content-center display-flex col-12 p-2">
-  
           <div className="container-fluid d-flex justify-content-center">
             <Card.Text>Stock disponible: {stock}</Card.Text>
           </div>

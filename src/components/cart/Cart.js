@@ -1,19 +1,18 @@
 import { useContext, useState } from 'react';
 import { Context } from "../context/CartContext"
 import { Container, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import CartItem from "../cartItem/CartItem"
 import { getFirestore } from "../firebase/Firebase"
-import firebase from 'firebase/app'
 import "firebase/firestore"
+
 
 const Cart = () => {
   const { cart, precioTotal, clearCart } = useContext(Context);
   const [orderId, setOrderId] = useState(null)
-
+  const [orderDate, setOrderDate] = useState(null)
+  
   const finishOrder = async () => {
-
-    console.log("Se finalizó la compra")
-
     const user = {
       nombre: "Rocio",
       email: "email@test.com",
@@ -34,30 +33,33 @@ const Cart = () => {
     const order = {
       buyer: user,
       items: itemsCart,
-      date: firebase.firestore.Timestamp.fromDate(new Date()),
+      date: new Date().toLocaleDateString(),
       precioTotal: precioTotal,
     }
     try {
       const { id } = await orders.add(order)
-      console.log('El Id de tu compra es:', id)
-      console.log('La fecha de tu compra es: ', order.date)
       setOrderId(id)
+      setOrderDate(order.date)
 
       clearCart()
     } catch (err) {
-      console.log("Ocurrió un error")
       console.log(err);
     }
   }
 
   if (cart.length === 0 && orderId === null) {
     return (
-      <p>No hay productos seleccionados en el carrito</p>
+      <h2 className="carroVacio">No hay productos seleccionados en el carrito</h2>
     )
   } else if (orderId !== null) {
-    // Compra finalizada
     return (
-      <p>Compra finalizada</p>
+      <div className="compraFin">
+      <p className="compraMensaje">¡Gracias por tu compra!</p>
+        <p className="ordenFin">Orden: {orderId}</p>
+        <p className="ordenFin">La fecha de compra es:  {orderDate}</p>
+        <Button as={Link} to="/" className="botonCompra" >Volver a Home</Button>
+      </div>
+      
     )
   } else if (cart.length > 0) {
     return (
@@ -81,9 +83,7 @@ const Cart = () => {
           <Container>
             <h2>Total :$ {precioTotal}</h2>
             <Button variant="danger" onClick={() => clearCart()}>Vaciar carrito</Button>
-            <Button variant="danger" onClick={() => finishOrder()}>Finalizar compra</Button>
-
-
+            <Button variant="danger" onClick={() => finishOrder()}>Comprar</Button>
           </Container>
         </Container>
       </div >
@@ -93,5 +93,4 @@ const Cart = () => {
 
 }
 
-//Exportamos el componente
 export default Cart

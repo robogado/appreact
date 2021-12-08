@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { Context } from "../context/CartContext"
-import { FaShoppingCart } from "react-icons/fa";
-import { Container } from "react-bootstrap";
+import { FaShoppingCart } from "react-icons/fa"
+import { Container } from "react-bootstrap"
+
 
 const CartWidget = () => {
   const { unidadesSeleccionadas } = useContext(Context)

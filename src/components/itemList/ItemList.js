@@ -1,7 +1,7 @@
 import Item from "./item/Item"
 
-const ItemList = ({ items }) => {
 
+const ItemList = ({ items }) => {
   return (
     <div className="container-fluid">
       <div className="row">

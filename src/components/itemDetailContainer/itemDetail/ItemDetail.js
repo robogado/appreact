@@ -5,20 +5,14 @@ import { Context } from "../../context/CartContext"
 import { Container, Card, Button } from "react-bootstrap"
 
 
-
-
-
 const ItemDetail = ({id, titulo, imagen, precio, stock, descr}) => {
-
     const [comprar, setComprar] = useState(false)
     const {onAdd} = useContext(Context)
 
     const agregarAlCarrito = (props) => {
         setComprar(true)
         onAdd({id, titulo, precio, imagen}, props.unidades)
-        console.log(`Agregaste ${props.unidades} al carrito`)
     }
-
 
     return (
         <Container className="col-12 col-md-12 col-lg-12 d-flex justify-content-center my-3">

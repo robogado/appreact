@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import ItemListContainer from "./components/itemListContainer/ItemListContainer"
 
+
 function App() {
   return (
     <Router>
@@ -24,15 +25,15 @@ function App() {
           <Switch>
 
             <Route path="/" exact>
-              <ItemListContainer saludo={'Bienvenidas a Free Beauty'} />
+              <ItemListContainer/>
             </Route>
 
             <Route path="/cart" exact>
-              <Cart titulo="" />
+              <Cart/>
             </Route>
 
             <Route path="/:categoria" exact>
-              <ItemListContainer saludo={'Bienvenidas a Free Beauty'} />
+              <ItemListContainer/>
             </Route>
 
             <Route path="/:categoria/:id" exact>

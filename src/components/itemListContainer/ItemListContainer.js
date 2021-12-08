@@ -1,7 +1,8 @@
 import ItemList from "../itemList/ItemList"
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { getFirestore } from "../firebase/Firebase";
+import { getFirestore } from "../firebase/Firebase"
+
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([])
@@ -17,7 +18,6 @@ const ItemListContainer = () => {
           setCargando(false)
         })
         .catch(err => console.log(err))
-      //.finally(() => setCargando(false))
     } else {
       const dbQuery = getFirestore()
       dbQuery.collection('productos').get()
@@ -26,16 +26,14 @@ const ItemListContainer = () => {
           setCargando(false)
         })
         .catch(err => console.log(err))
-      // .finally(() => setCargando(false))
     }
   }, [categoria])
 
   return (
     <>
-      {/* Si está cargando los productos muestro el mensaje, sino llamo a ItemList con productos */}
       {
         cargando ?
-          <h2>CARGANDO...</h2>
+          <h2>Cargando...</h2>
           :
           <div className="container-fluid">
             <div className="row">
