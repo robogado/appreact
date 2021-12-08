@@ -13,10 +13,17 @@ Horacio Gutierrez
 - - -
 
 ## **Sobre Beauty Free**
-Es un E-commerse que se dedica a la venta de maquillajes de primeras marcas al mejor precio del mercado para que puedas regalar o regalarte.
+Es un E-commerse que se dedica a la venta de maquillajes de primeras marcas al mejor precio del mercado para que puedas regalar o regalarte, vendemos:
+- Iluminador
+- BB cream
+- Polvo volatil
+- Labial gloss
+- Labial matte
+- Sombras
+- Rimmel
+- Delineador
 
 Las marcas que comercializamos son:
-
 - Maybelline
 - Rimmel
 - Loreal
@@ -35,15 +42,15 @@ Incluye las cards con todos los productos.
 
 **_Ojos:_**
 
-Las cards que contienen productos para maquillarse los ojos.
+Las cards que contienen productos para maquillarse los ojos (delineador, rimmel y sombras).
 
 **_Rostro:_**
 
-Las cards que contienen productos para maquillarse el rostro.
+Las cards que contienen productos para maquillarse el rostro (BB cream, iluminador y polvo volatil).
 
 **_Labios:_**
 
-Las cards que contienen productos para maquillarse los labios.
+Las cards que contienen productos para maquillarse los labios (labiales matte y gloss).
 
 **_Carrito:_**
 
